@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Secure Serverless App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to My Secure Serverless App!</h1>
+      <p id="api-response">Calling API...</p>
+    </div>
+
+    <script>
+      // Replace this with your real API Gateway URL later
+      const apiUrl = "https://your-api-id.execute-api.region.amazonaws.com";
+
+      fetch(apiUrl)
+        .then((res) => res.json())
+        .then((data) => {
+          document.getElementById("api-response").textContent = data.message;
+        })
+        .catch((err) => {
+          document.getElementById("api-response").textContent =
+            "Error calling API.";
+          console.error(err);
+        });
+    </script>
+  </body>
+</html>
