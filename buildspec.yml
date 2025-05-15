@@ -3,11 +3,12 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing dependencies (none for now)
+      - echo "No dependencies to install"
+
   build:
     commands:
-      - echo Build started on `date`
-      - echo No build commands needed yet
+      - echo "No build step needed"
+
 artifacts:
   files:
     - "**/*"
