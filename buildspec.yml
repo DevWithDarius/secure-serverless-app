@@ -2,13 +2,20 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 18
     commands:
-      - echo "No dependencies to install"
+      - echo Installing dependencies...
+      # Add any install commands if needed
 
   build:
     commands:
-      - echo "No build step needed"
+      - echo Build step...
+      # Add any frontend build commands (like npm run build)
 
-artifacts:
-  files:
-    - "**/*"
+  post_build:
+    commands:
+      - echo Deploying to S3...
+      - aws s3 sync ./frontend s3://devdarius-secure-frontend/frontend --delete
+      - echo "Creating CloudFront invalidation..."
+      - aws cloudfront create-invalidation --distribution-id E243YJD07806B7 --paths "/*"
