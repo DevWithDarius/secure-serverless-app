@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Secure Serverless App</title>
+    <link rel="stylesheet" href="frontend/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to My Secure Serverless Application!</h1>
+      <p id="api-response">Calling API...</p>
+    </div>
+
+    <script>
+      const apiUrl =
+        "https://iumg8zvyn7.execute-api.us-east-1.amazonaws.com/dev/hello";
+
+      fetch(apiUrl)
+        .then((res) => res.json())
+        .then((data) => {
+          document.getElementById("api-response").textContent = data.message;
+        })
+        .catch((err) => {
+          document.getElementById("api-response").textContent =
+            "Error calling API.";
+          console.error(err);
+        });
+    </script>
+  </body>
+</html>
