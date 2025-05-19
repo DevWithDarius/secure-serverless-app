@@ -8,5 +8,8 @@ phases:
     commands:
       - echo "Zipping Lambda function..."
       - zip -r function.zip .
-      - echo "Deploying Lambda function to AWS..."
+      - echo "Listing files in working directory..."
+      - ls -la
+      - echo "Deploying Lambda to AWS..."
+      - aws sts get-caller-identity # confirms IAM role works
       - aws lambda update-function-code --function-name SecureLamdaApi --zip-file fileb://function.zip --region us-east-1
