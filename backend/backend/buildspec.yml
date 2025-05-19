@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+  build:
+    commands:
+      - echo "Zipping Lambda function..."
+      - zip -r function.zip .
+      - echo "Deploying Lambda function to AWS..."
+      - aws lambda update-function-code --function-name SecureLamdaApi --zip-file fileb://function.zip --region us-east-1
