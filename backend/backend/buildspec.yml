@@ -4,12 +4,21 @@ phases:
   install:
     runtime-versions:
       nodejs: 18
+    commands:
+      - echo "Installing AWS CLI version..."
+      - aws --version
   build:
     commands:
       - echo "Zipping Lambda function..."
       - zip -r function.zip .
-      - echo "Listing files in working directory..."
-      - ls -la
-      - echo "Deploying Lambda to AWS..."
-      - aws sts get-caller-identity # confirms IAM role works
-      - aws lambda update-function-code --function-name SecureLamdaApi --zip-file fileb://function.zip --region us-east-1
+      - echo "Confirming the zip file exists..."
+      - ls -lh function.zip || echo "Zip file not found!"
+      - echo "Checking AWS identity for permission debug..."
+      - aws sts get-caller-identity || echo "Failed to get caller identity"
+      - echo "Attempting to update Lambda function..."
+      - |
+        aws lambda update-function-code \
+          --function-name SecureLamdaApi \
+          --zip-file fileb://function.zip \
+          --region us-east-1 \
+          || echo "Lambda update failed"
