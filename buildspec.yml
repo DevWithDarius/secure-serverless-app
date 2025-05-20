@@ -5,19 +5,15 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - echo Installing frontend dependencies...
-      - cd frontend
-      - npm install
+      - echo Installing dependencies...
 
   build:
     commands:
-      - echo Building frontend...
-      - npm run build
-      - cd ..
+      - echo Build step...
 
   post_build:
     commands:
-      - echo Deploying built frontend to S3...
-      - aws s3 sync frontend/dist s3://devdarius-secure-frontend/ --delete
+      - echo Deploying frontend to S3...
+      - aws s3 sync ./frontend s3://devdarius-secure-frontend --delete --exclude "*" --include "*.html" --include "*.css" --include "assets/*" --include "js/*"
       - echo Creating CloudFront invalidation...
       - aws cloudfront create-invalidation --distribution-id E243YJD07806B7 --paths "/*"
