@@ -10,11 +10,10 @@ phases:
   build:
     commands:
       - echo Build step...
-      # npm run build (if needed)
 
   post_build:
     commands:
       - echo Deploying to S3 root...
       - aws s3 sync ./frontend s3://devdarius-secure-frontend/ --delete
-      - echo Creating CloudFront invalidation...
-      - aws cloudfront create-invalidation --distribution-id E243YJD07806B7 --paths "/*"
+      - echo "Creating CloudFront invalidation..."
+      - aws cloudfront create-invalidation --distribution-id E30TMAYGX1EZ3 --paths "/*"
