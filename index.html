@@ -8,10 +8,29 @@
   </head>
   <body>
     <header>
-      <h1>Welcome to My Secure Serverless App</h1>
+      <h1>Welcome to the Secure Serverless App</h1>
+      <div class="header-buttons">
+        <button id="theme-toggle">☀️ Light Mode</button>
+        <a href="resume.pdf" class="resume-btn" download>📄 Download Resume</a>
+      </div>
     </header>
 
     <main>
+      <!-- Introduction -->
+      <section class="intro">
+        <p>
+          This project showcases a secure, fully automated serverless
+          architecture built with AWS services and Terraform. Designed with
+          security and scalability in mind, it integrates API Gateway, Lambda,
+          WAF, IAM, and a CI/CD pipeline.
+        </p>
+        <p>
+          Below is the architecture overview—capturing how user traffic is
+          processed, infrastructure is deployed, and threats are detected in
+          real time.
+        </p>
+      </section>
+
       <!-- Architecture Diagram Section -->
       <div class="diagram-container">
         <h2>Architecture Diagram</h2>
@@ -20,11 +39,57 @@
           alt="Serverless Architecture Diagram"
           class="architecture-img"
         />
+        <p class="diagram-explanation">
+          Requests from users are filtered by AWS WAF and routed through API
+          Gateway to Lambda functions. These functions trigger CI/CD automation
+          using CodePipeline and CodeBuild to deploy infrastructure with
+          Terraform. IAM enforces least-privilege access across all services.
+          CloudWatch monitors activity and forwards suspicious logs to an
+          automated Incident Response workflow—allowing companies to respond to
+          real-world threats faster, reduce breach impact, and maintain uptime.
+        </p>
+      </div>
+
+      <!-- Contact & GitHub -->
+      <div class="contact">
+        <p>
+          🔗 View the full project on GitHub:
+          <a
+            href="https://github.com/DevWithDarius/secure-serverless-app"
+            target="_blank"
+          >
+            DevWithDarius/secure-serverless-app
+          </a>
+        </p>
+        <p>
+          📞 For more projects or collaboration: <strong>469-468-2325</strong>
+        </p>
       </div>
     </main>
 
     <footer>
-      <p>&copy; 2025 My Secure Serverless App | Built by Darius Lewis</p>
+      <p>&copy; 2025 Darius Lewis | Built with AWS & Passion 🔐</p>
     </footer>
+
+    <!-- Theme Toggle Script -->
+    <script>
+      const toggleButton = document.getElementById("theme-toggle");
+      const body = document.body;
+
+      // Force dark mode by default on page load
+      window.addEventListener("DOMContentLoaded", () => {
+        if (!body.classList.contains("light-mode")) {
+          body.classList.remove("light-mode");
+          toggleButton.textContent = "☀️ Light Mode";
+        }
+      });
+
+      toggleButton.addEventListener("click", () => {
+        body.classList.toggle("light-mode");
+        toggleButton.textContent = body.classList.contains("light-mode")
+          ? "🌙 Dark Mode"
+          : "☀️ Light Mode";
+      });
+    </script>
   </body>
 </html>
