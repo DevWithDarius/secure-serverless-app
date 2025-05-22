@@ -2,29 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>My Secure Serverless App</title>
-    <link rel="stylesheet" href="frontend/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secure Serverless Web App</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>Welcome to My Secure Serverless App!</h1>
-      <p id="api-response">Calling API...</p>
-    </div>
+    <header>
+      <h1>Welcome to My Secure Serverless App</h1>
+    </header>
 
-    <script>
-      const apiUrl =
-        "https://iumg8zvyn7.execute-api.us-east-1.amazonaws.com/dev/hello";
+    <main>
+      <!-- Architecture Diagram Section -->
+      <div class="diagram-container">
+        <h2>Architecture Diagram</h2>
+        <img
+          src="images/ServerlessWebApp.png"
+          alt="Serverless Architecture Diagram"
+          class="architecture-img"
+        />
+      </div>
+    </main>
 
-      fetch(apiUrl)
-        .then((res) => res.json())
-        .then((data) => {
-          document.getElementById("api-response").textContent = data.message;
-        })
-        .catch((err) => {
-          document.getElementById("api-response").textContent =
-            "Error calling API.";
-          console.error(err);
-        });
-    </script>
+    <footer>
+      <p>&copy; 2025 My Secure Serverless App | Built by Darius Lewis</p>
+    </footer>
   </body>
 </html>
