@@ -1,5 +1,5 @@
 SecureServerlessApp
-Overview
+Project Overview
 SecureServerlessApp is a robust, secure, and scalable serverless web application that demonstrates best practices in AWS architecture, security, and CI/CD automation. This project is fully automated with an integrated CI/CD pipeline, utilizing AWS services like Lambda, API Gateway, and CodePipeline, alongside infrastructure automation using Terraform.
 
 The application is designed to be scalable and secure, following the principles of the AWS Solutions Architect and CompTIA Security+ certifications. It incorporates fine-grained IAM policies, secure handling of secrets, and environment variables, along with logging and monitoring via AWS CloudWatch.
@@ -7,20 +7,20 @@ The application is designed to be scalable and secure, following the principles 
 Key Features
 Serverless Backend with AWS Lambda: Scalable, event-driven compute platform.
 
-Secure API with Amazon API Gateway: Exposes RESTful APIs secured by API Gateway authorizers.
+Secure API with Amazon API Gateway: RESTful APIs secured by API Gateway authorizers.
 
-Automated CI/CD Pipeline using AWS CodePipeline and CodeBuild: Continuous integration and deployment triggered by changes in source code.
+Automated CI/CD Pipeline: Continuous integration and deployment triggered by changes in source code using AWS CodePipeline and CodeBuild.
 
 Infrastructure as Code (IaC) with Terraform: Automates infrastructure provisioning and deployment for the entire application.
 
 Fine-grained IAM Role Policies: Implements least privilege security principles.
 
-Environment-specific Configuration and Secret Management: Secure handling of environment variables and secrets.
+Environment-specific Configuration & Secret Management: Secure handling of environment variables and secrets.
 
 Logging and Monitoring with AWS CloudWatch: Tracks application behavior, health, and security.
 
 Technologies Used
-AWS Services:
+AWS Services
 AWS Lambda: Event-driven compute service to host backend functions.
 
 Amazon API Gateway: Managed API service to handle requests and secure them with API Gateway authorizers.
@@ -33,10 +33,10 @@ AWS IAM: Manages secure access and roles for the application.
 
 AWS CloudWatch: Provides monitoring, logging, and alarms to track application performance and security.
 
-Terraform: Infrastructure as Code tool to provision and manage AWS resources.
-
-Other Technologies:
 Terraform: Infrastructure automation tool that provisions AWS resources using configuration files.
+
+Other Technologies
+Terraform: Infrastructure as Code tool that provisions and manages AWS resources.
 
 Architecture Diagram
 The architecture consists of:
@@ -54,14 +54,14 @@ IAM roles for controlling access.
 Terraform for managing and provisioning all AWS resources.
 
 Setup Instructions
-Prerequisites:
+Prerequisites
 AWS Account: Set up your AWS account and configure AWS CLI if needed.
 
 Terraform: Install Terraform for provisioning and managing AWS resources.
 
-Git: Make sure Git is installed to clone this repository.
+Git: Ensure Git is installed to clone this repository.
 
-Steps to Deploy:
+Steps to Deploy
 Clone the Repository:
 
 bash
@@ -129,7 +129,7 @@ Access the Application:
 
 After deployment, your web app will be accessible through the API Gateway URL or a custom domain configured with Route 53.
 
-Optional Enhancements:
+Optional Enhancements
 Autoscaling: Configure Lambda to handle increased traffic.
 
 Database Integration: Set up an RDS (Relational Database Service) to manage dynamic data.
