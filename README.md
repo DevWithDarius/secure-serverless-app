@@ -1,56 +1,166 @@
-# SecureServerlessApp
+SecureServerlessApp
+Overview
+SecureServerlessApp is a robust, secure, and scalable serverless web application that demonstrates best practices in AWS architecture, security, and CI/CD automation. This project is fully automated with an integrated CI/CD pipeline, utilizing AWS services like Lambda, API Gateway, and CodePipeline, alongside infrastructure automation using Terraform.
 
-SecureServerlessApp is a robust, secure serverless web application demonstrating best practices in AWS architecture, security, and CI/CD automation.
+The application is designed to be scalable and secure, following the principles of the AWS Solutions Architect and CompTIA Security+ certifications. It incorporates fine-grained IAM policies, secure handling of secrets, and environment variables, along with logging and monitoring via AWS CloudWatch.
 
----
+Key Features
+Serverless Backend with AWS Lambda: Scalable, event-driven compute platform.
 
-## Project Overview
+Secure API with Amazon API Gateway: Exposes RESTful APIs secured by API Gateway authorizers.
 
-This project showcases a fully automated CI/CD pipeline deploying a serverless application on AWS using:
+Automated CI/CD Pipeline using AWS CodePipeline and CodeBuild: Continuous integration and deployment triggered by changes in source code.
 
-- **AWS Lambda** for scalable, event-driven compute.
-- **Amazon API Gateway** as the secure API front door.
-- **AWS CodePipeline** for continuous integration and delivery.
-- **AWS CodeBuild** for build automation.
-- **AWS IAM** roles and policies adhering to the principle of least privilege.
-- Secure handling of secrets and environment variables.
-- Infrastructure as Code with AWS SAM or CloudFormation.
+Infrastructure as Code (IaC) with Terraform: Automates infrastructure provisioning and deployment for the entire application.
 
-The application is designed with security and scalability in mind, making it a practical demonstration for AWS Solutions Architect and Security+ certification skills.
+Fine-grained IAM Role Policies: Implements least privilege security principles.
 
----
+Environment-specific Configuration and Secret Management: Secure handling of environment variables and secrets.
 
-## Features
+Logging and Monitoring with AWS CloudWatch: Tracks application behavior, health, and security.
 
-- Serverless backend with Lambda functions
-- RESTful APIs secured via API Gateway authorizers
-- Automated CI/CD pipeline triggered by source code changes
-- Fine-grained IAM role policies to minimize attack surface
-- Environment-specific configuration and secret management
-- Logging and monitoring with AWS CloudWatch
+Technologies Used
+AWS Services:
+AWS Lambda: Event-driven compute service to host backend functions.
 
----
+Amazon API Gateway: Managed API service to handle requests and secure them with API Gateway authorizers.
 
-## Architecture Diagram
+AWS CodePipeline: Automates the CI/CD pipeline for the project, integrating various stages of build, test, and deployment.
 
-![Architecture Diagram](docs/architecture.png)
+AWS CodeBuild: Automates the build process as part of the CI/CD pipeline.
 
----
+AWS IAM: Manages secure access and roles for the application.
 
-## Getting Started
+AWS CloudWatch: Provides monitoring, logging, and alarms to track application performance and security.
 
-### Prerequisites
+Terraform: Infrastructure as Code tool to provision and manage AWS resources.
 
-- AWS Account with admin or required permissions
-- AWS CLI configured with credentials
-- AWS SAM CLI installed (if using SAM)
-- Node.js / Python / other runtime (depending on your app)
-- Git
+Other Technologies:
+Terraform: Infrastructure automation tool that provisions AWS resources using configuration files.
 
-### Installation
+Architecture Diagram
+The architecture consists of:
 
-1. Clone the repository:
+AWS Lambda functions handling the serverless backend.
 
-   ```bash
-   git clone https://github.com/yourusername/SecureServerlessApp.git
-   cd SecureServerlessApp
+API Gateway for exposing the Lambda functions as RESTful APIs.
+
+CodePipeline for continuous integration and delivery.
+
+CodeBuild for building the application.
+
+IAM roles for controlling access.
+
+Terraform for managing and provisioning all AWS resources.
+
+Setup Instructions
+Prerequisites:
+AWS Account: Set up your AWS account and configure AWS CLI if needed.
+
+Terraform: Install Terraform for provisioning and managing AWS resources.
+
+Git: Make sure Git is installed to clone this repository.
+
+Steps to Deploy:
+Clone the Repository:
+
+bash
+Copy
+git clone https://github.com/DevWithDarius/SecureServerlessApp.git
+cd SecureServerlessApp
+Set up AWS Credentials:
+If you haven't already configured AWS CLI with your credentials, run:
+
+bash
+Copy
+aws configure
+Follow the prompts to enter your AWS access key, secret key, region, and output format.
+
+Install Terraform:
+
+Download and install Terraform for your operating system from Terraform downloads.
+
+After installation, verify by running:
+
+bash
+Copy
+terraform --version
+Provision Infrastructure with Terraform:
+
+Navigate to the Terraform configuration folder:
+
+bash
+Copy
+cd terraform
+Initialize Terraform:
+
+bash
+Copy
+terraform init
+Review the infrastructure plan:
+
+bash
+Copy
+terraform plan
+Apply the Terraform configuration to provision AWS resources:
+
+bash
+Copy
+terraform apply
+Confirm the action by typing yes when prompted.
+
+Configure API Gateway and Lambda:
+
+Once Terraform provisions the infrastructure, deploy the backend API by uploading the Lambda function code to AWS.
+
+Verify that the Lambda function is accessible via the API Gateway endpoint.
+
+Set up Continuous Integration and Delivery:
+
+Ensure that AWS CodePipeline is set up correctly to trigger deployments when changes are pushed to the GitHub repository.
+
+Modify the buildspec.yml file if necessary to match your project structure.
+
+Secure Environment Variables and Secrets:
+
+Use AWS Secrets Manager or SSM Parameter Store for storing environment variables and sensitive secrets securely.
+
+Access the Application:
+
+After deployment, your web app will be accessible through the API Gateway URL or a custom domain configured with Route 53.
+
+Optional Enhancements:
+Autoscaling: Configure Lambda to handle increased traffic.
+
+Database Integration: Set up an RDS (Relational Database Service) to manage dynamic data.
+
+Monitoring: Configure CloudWatch Alarms for Lambda functions to monitor performance.
+
+Deployment
+Clone this repository:
+
+bash
+Copy
+git clone https://github.com/DevWithDarius/SecureServerlessApp.git
+Follow the setup instructions to deploy the infrastructure and application using Terraform.
+
+Once the deployment is complete, access your web application through the custom domain (if configured) or the API Gateway URL.
+
+Contributing
+If you'd like to contribute, feel free to fork the repository and submit a pull request. You can contribute by:
+
+Adding features.
+
+Fixing bugs.
+
+Improving documentation.
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Contact
+GitHub: DevWithDarius
+
+Email: darius@example.com
+
+Website: DevWithDarius.us
